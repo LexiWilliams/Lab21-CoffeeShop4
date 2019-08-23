@@ -34,3 +34,6 @@ C:\Users\lexas\OneDrive\Desktop\C#\Week 6\Lab18-CoffeeShopPart4\Lab18-CoffeeShop
 C:\Users\lexas\OneDrive\Desktop\C#\Week 6\Lab18-CoffeeShopPart4\Lab18-CoffeeShopPart4\obj\Debug\netcoreapp2.2\Razor\Views\CoffeeShop\LogOut.g.cshtml.cs
 C:\Users\lexas\OneDrive\Desktop\C#\Week 6\Lab18-CoffeeShopPart4\Lab18-CoffeeShopPart4\obj\Debug\netcoreapp2.2\Razor\Views\CoffeeShop\Shop.g.cshtml.cs
 C:\Users\lexas\OneDrive\Desktop\C#\Week 6\Lab18-CoffeeShopPart4\Lab18-CoffeeShopPart4\obj\Debug\netcoreapp2.2\Razor\Views\CoffeeShop\ShoppingCartList.g.cshtml.cs
+C:\Users\lexas\OneDrive\Desktop\C#\Week 6\Lab18-CoffeeShopPart4\Lab18-CoffeeShopPart4\obj\Debug\netcoreapp2.2\Razor\Views\CoffeeShop\Purchase.g.cshtml.cs
+C:\Users\lexas\OneDrive\Desktop\C#\Week 6\Lab18-CoffeeShopPart4\Lab18-CoffeeShopPart4\obj\Debug\netcoreapp2.2\Razor\Views\CoffeeShop\Receipt.g.cshtml.cs
+C:\Users\lexas\OneDrive\Desktop\C#\Week 6\Lab18-CoffeeShopPart4\Lab18-CoffeeShopPart4\obj\Debug\netcoreapp2.2\Razor\Views\CoffeeShop\Error.g.cshtml.cs

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Lab18_CoffeeShopPart4.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Internal;
 using Newtonsoft.Json;
 
 namespace Lab18_CoffeeShopPart4.Controllers
@@ -13,7 +14,7 @@ namespace Lab18_CoffeeShopPart4.Controllers
     {
         //field
         private readonly CoffeeShopDbContext _context;
-
+        
         //controller
         public CoffeeShopController(CoffeeShopDbContext context)
         {
@@ -21,8 +22,6 @@ namespace Lab18_CoffeeShopPart4.Controllers
         }
         List<User> users = new List<User>();
         List<Item> shoppingCart = new List<Item>();
-
-
 
         public IActionResult Index()
         {
@@ -133,12 +132,50 @@ namespace Lab18_CoffeeShopPart4.Controllers
 
             shoppingCart = JsonConvert.DeserializeObject<List<Item>>(shoppingCartJson);
 
+           
+            
+
             shoppingCart.RemoveAt(0);
-
-
 
             HttpContext.Session.SetString("CartSession", JsonConvert.SerializeObject(shoppingCart));
             return RedirectToAction("ShoppingCartList", shoppingCart);
+        }
+        public IActionResult Purchase()
+        {
+            string shoppingCartJson = HttpContext.Session.GetString("CartSession");
+            shoppingCart = JsonConvert.DeserializeObject<List<Item>>(shoppingCartJson);
+            string userJson = HttpContext.Session.GetString("LoginSession");
+            User thisUser = JsonConvert.DeserializeObject<User>(userJson);
+
+            float cost = 0;
+            foreach (Item item in shoppingCart)
+            {
+                cost += item.Price;
+            }
+
+            if (thisUser.Funds >= cost)
+            {
+                float remainingFunds = ((thisUser.Funds) - cost);
+                thisUser.Funds = (remainingFunds);
+                _context.Update(thisUser);
+                _context.SaveChanges();
+                TempData["Receipt"] = $"Purchase cost: ${cost}, Remaining funds: ${remainingFunds}";
+                return RedirectToAction("Receipt");
+            }
+            else
+            {
+                TempData["Funds"] = $"Insufficient Funds: available:${thisUser.Funds}, required:${cost}";
+                return View("Error");
+            }
+        }
+                
+        public IActionResult Receipt()
+        {
+            return View();
+        }
+        public IActionResult Error()
+        {
+            return View();
         }
     }
 }

@@ -9,6 +9,7 @@
 
 <h1>Shop</h1>
 
+ 
 
 <form action="/CoffeeShop/AddItemToCart" method="post">
     <table class="table">
@@ -18,21 +19,24 @@
             <th>Quantity</th>
             <th>Price</th>
         </tr>
+        
         @foreach (var item in Model)
         {
-    <tr>
-        <td>@item.Name</td>
-        <td>@item.Description</td>
-        <td>@item.Quantity</td>
-        <td>@item.Price</td>
-        @{ if (Context.Session.GetString("LoginSession") != null)
-            {
-                
-                <td>@Html.ActionLink("Buy", "AddItemToCart", "CoffeeShop", item)</td>
-                
-            }
-        }
-    </tr>
+            
+
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+                @{ if (Context.Session.GetString("LoginSession") != null)
+                    {
+
+                        <td>@Html.ActionLink("Buy", "AddItemToCart", "CoffeeShop", item)</td>
+
+                    }
+                }
+            </tr>
         }
 
     </table>
