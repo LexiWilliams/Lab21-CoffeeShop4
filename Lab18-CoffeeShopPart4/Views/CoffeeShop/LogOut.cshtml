@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "LogOut";
+}
+
+<h1>LogOut</h1>
+@TempData["LoggedIn"]
+
+<form action="LogOut" method="post">
+    <input type="submit" value="LogOut" />
+</form>
+
+
+<style>
+    body {
+        background-image: url('../../wispy.jpg');
+        background-size: cover;
+    }
+</style>

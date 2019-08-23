@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "ShoppingCartList";
+}
+
+@model IEnumerable<Lab18_CoffeeShopPart4.Models.Item>
+@using Microsoft.AspNetCore.Http
+
+<h1>ShoppingCartList</h1>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+            @{ if (Context.Session.GetString("LoginSession") != null)
+                {
+                    <td>@Html.ActionLink("Remove", "RemoveItem", "CoffeeShop", item)</td>
+                }
+            }
+        </tr>
+    }
+
+</table>

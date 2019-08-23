@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+@TempData["InvalidPass"]
+@TempData["InvalidEmail"]
+
+
+<form action="Login" method="post">
+    <div>
+        Email: <input type="text" name="Email" />
+        Password: <input type="text" name="Password" />
+
+        <input type="submit" value="Login" />
+    </div>
+</form>
+
+<style>
+    body {
+        background-image: url('../../wispy.jpg');
+        background-size: cover;
+    }
+</style>

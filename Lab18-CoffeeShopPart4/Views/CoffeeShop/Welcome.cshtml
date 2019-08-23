@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<h1>Welcome</h1>
+
+@model Lab18_CoffeeShopPart4.Models.User
+
+<table class="table">
+    <tr>
+        <th>Email</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Dob</th>
+        <th>Gender</th>
+        <th>ZipCode</th>
+        <th>Funds</th>
+    </tr>
+
+    <tr>
+        <td>@Model.Email</td>
+        <td>@Model.FirstName</td>
+        <td>@Model.LastName</td>
+        <td>@Model.Dob</td>
+        <td>@Model.Gender</td>
+        <td>@Model.ZipCode</td>
+        <td>@Model.Funds</td>
+    </tr>
+
+    <tr>
+        <td>
+        </td>
+    </tr>
+</table>
+
+<style>
+    body {
+        background-image: url('../../wispy.jpg');
+        background-size: cover;
+    }
+</style>
