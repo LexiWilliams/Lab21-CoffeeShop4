@@ -126,16 +126,12 @@ namespace Lab18_CoffeeShopPart4.Controllers
         }
         public IActionResult RemoveItem(Item item)
         {
-
-
             string shoppingCartJson = HttpContext.Session.GetString("CartSession");
 
             shoppingCart = JsonConvert.DeserializeObject<List<Item>>(shoppingCartJson);
+            int index = shoppingCart.FindIndex(a => a.Name == item.Name);
 
-           
-            
-
-            shoppingCart.RemoveAt(0);
+            shoppingCart.RemoveAt(index);
 
             HttpContext.Session.SetString("CartSession", JsonConvert.SerializeObject(shoppingCart));
             return RedirectToAction("ShoppingCartList", shoppingCart);
